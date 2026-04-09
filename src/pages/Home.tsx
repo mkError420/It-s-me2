@@ -5,9 +5,16 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Link } from "react-router-dom";
 import { cn } from "@/lib/utils";
+import { projects } from "../data/projects";
 
 const heroImage = new URL("../assects/image.2.png", import.meta.url).href;
-const ecommerceImage = new URL("../assects/e-commerce.png", import.meta.url).href;
+const featuredProjects = projects.slice(0, 2).map((project) => ({
+  title: project.title,
+  category: project.tags[0] ?? "Featured",
+  image: project.image,
+  description: project.description,
+  link: project.demo || "/projects",
+}));
 
 const services = [
   {
@@ -27,21 +34,6 @@ const services = [
     description: "Developing cross-platform mobile applications for iOS and Android devices.",
     icon: Smartphone,
     color: "bg-green-500/10 text-green-500",
-  },
-];
-
-const featuredProjects = [
-  {
-    title: "E-Commerce Platform",
-    category: "Web Development",
-    image: ecommerceImage,
-    link: "/projects",
-  },
-  {
-    title: "AI Analytics Dashboard",
-    category: "Data Science",
-    image: "https://picsum.photos/seed/ai/800/600",
-    link: "/projects",
   },
 ];
 
@@ -196,7 +188,7 @@ export default function Home() {
                     {featuredProjects[0].title}
                   </h3>
                   <p className="max-w-xl text-sm text-white/80 mb-6">
-                    A complete, scalable e-commerce experience with a polished storefront and streamlined checkout flow.
+                    {featuredProjects[0].description}
                   </p>
                   <Button variant="secondary" className="rounded-full">
                     <Link to={featuredProjects[0].link}>View Project</Link>
@@ -229,7 +221,7 @@ export default function Home() {
                       {featuredProjects[1].title}
                     </h3>
                     <p className="text-sm text-white/75">
-                      A data-driven dashboard built to help teams quickly discover insights and act with confidence.
+                      {featuredProjects[1].description}
                     </p>
                   </div>
                 </div>
@@ -245,15 +237,15 @@ export default function Home() {
                 <p className="text-sm uppercase tracking-[0.24em] text-muted-foreground/70 mb-4">Project highlights</p>
                 <div className="space-y-4">
                   <div>
-                    <h4 className="text-xl font-semibold mb-2">Design systems</h4>
+                    <h4 className="text-xl font-semibold text-red-500 mb-2">Design systems</h4>
                     <p className="text-muted-foreground">Reusable UI, consistent branding, and accessible visual patterns across product experiences.</p>
                   </div>
                   <div>
-                    <h4 className="text-xl font-semibold mb-2">Performance goals</h4>
+                    <h4 className="text-xl font-semibold text-red-500 mb-2">Performance goals</h4>
                     <p className="text-muted-foreground">Fast-loading pages and intuitive interactions for every screen size.</p>
                   </div>
                   <div>
-                    <h4 className="text-xl font-semibold mb-2">User-centered tools</h4>
+                    <h4 className="text-xl font-semibold text-red-500 mb-2">User-centered tools</h4>
                     <p className="text-muted-foreground">Projects built with user adoption, clarity, and conversion in mind.</p>
                   </div>
                 </div>

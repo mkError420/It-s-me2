@@ -2,43 +2,7 @@ import { motion } from "motion/react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { ExternalLink, Github } from "lucide-react";
-
-const ecommerceImage = new URL("../assects/e-commerce.png", import.meta.url).href;
-
-const projects = [
-  {
-    title: "E-Commerce Platform",
-    description: "A full-featured e-commerce solution with real-time inventory, secure payments, and an intuitive admin dashboard.",
-    image: ecommerceImage,
-    tags: ["Next.js","Tailwind CSS", "Node.js", "MongoDB", "Stripe"],
-    github: "https://github.com/mkError420/e-commerce-full-function",
-    demo: "https://e-commerce-full-function-red.vercel.app/",
-  },
-  {
-    title: "AI Analytics Dashboard",
-    description: "Data visualization platform that uses machine learning to provide predictive insights for business growth.",
-    image: "https://picsum.photos/seed/ai/800/600",
-    tags: ["Next.js", "Python", "D3.js", "TensorFlow"],
-    github: "#",
-    demo: "#",
-  },
-  {
-    title: "Task Management App",
-    description: "Collaborative task management tool with real-time updates, file sharing, and team communication features.",
-    image: "https://picsum.photos/seed/task/800/600",
-    tags: ["React", "Firebase", "Tailwind CSS", "Framer Motion"],
-    github: "#",
-    demo: "#",
-  },
-  {
-    title: "Fitness Tracking Mobile App",
-    description: "Cross-platform mobile application for tracking workouts, nutrition, and health metrics with social features.",
-    image: "https://picsum.photos/seed/fitness/800/600",
-    tags: ["React Native", "GraphQL", "PostgreSQL", "AWS"],
-    github: "#",
-    demo: "#",
-  },
-];
+import { projects } from "../data/projects";
 
 export default function Projects() {
   return (
