@@ -21,7 +21,7 @@ export default function Contact() {
 
     try {
       const response = await fetch(
-        "https://formsubmit.co/ajax/el/ruloki",
+        "https://formsubmit.co/ajax/mk.rabbani.cse@gmail.com",
         {
           method: "POST",
           body: formData,
