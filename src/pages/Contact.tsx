@@ -87,7 +87,7 @@ export default function Contact() {
               <form onSubmit={handleSubmit} className="space-y-8">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                   <div className="space-y-2">
-                    <label className="text-sm font-medium ml-1">Full Name</label>
+                    <label className="text-sm font-medium ml-1">Name</label>
                     <Input 
                       name="name"
                       placeholder="Enter your nickname" 
@@ -96,24 +96,15 @@ export default function Contact() {
                     />
                   </div>
                   <div className="space-y-2">
-                    <label className="text-sm font-medium ml-1">Email Address</label>
+                    <label className="text-sm font-medium ml-1">Phone Number</label>
                     <Input 
-                      name="email"
-                      type="email" 
-                      placeholder="Enter your email address" 
+                      name="phone"
+                      type="tel" 
+                      placeholder="Enter your phone number" 
                       required 
                       className="rounded-2xl h-14 bg-muted/30 border-border focus:bg-background transition-colors"
                     />
                   </div>
-                </div>
-                <div className="space-y-2">
-                  <label className="text-sm font-medium ml-1">Subject</label>
-                  <Input 
-                    name="subject"
-                    placeholder="Project Inquiry" 
-                    required 
-                    className="rounded-2xl h-14 bg-muted/30 border-border focus:bg-background transition-colors"
-                  />
                 </div>
                 <div className="space-y-2">
                   <label className="text-sm font-medium ml-1">Message</label>
