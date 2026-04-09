@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { motion } from "motion/react";
 import { ArrowRight, Code, Layout, Smartphone, Sparkles, Terminal } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -38,6 +39,36 @@ const services = [
 ];
 
 export default function Home() {
+  const [githubStats, setGithubStats] = useState({
+    login: "mkError420",
+    public_repos: 0,
+    followers: 0,
+    following: 0,
+    public_gists: 0,
+    html_url: "https://github.com/mkError420",
+  });
+
+  useEffect(() => {
+    fetch("https://api.github.com/users/mkError420")
+      .then((res) => res.json())
+      .then((data) => {
+        setGithubStats({
+          login: data.login ?? "mkError420",
+          public_repos: data.public_repos ?? 0,
+          followers: data.followers ?? 0,
+          following: data.following ?? 0,
+          public_gists: data.public_gists ?? 0,
+          html_url: data.html_url ?? "https://github.com/mkError420",
+        });
+      })
+      .catch(() => {
+        /* ignore fetch failures */
+      });
+  }, []);
+
+  const githubDisplayName = githubStats.login || "mkError420";
+  const contributionsUrl = `https://ghchart.rshah.org/${githubDisplayName}`;
+
   return (
     <div className="flex flex-col gap-24 pb-24">
       {/* Hero Section */}
@@ -304,6 +335,84 @@ export default function Home() {
               </div>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* Git Contributions Pre-footer */}
+      <section className="container mx-auto px-4 py-24">
+        <div className="grid gap-12 lg:grid-cols-[1.2fr_0.8fr] items-center">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="max-w-2xl"
+          >
+            <p className="text-sm uppercase tracking-[0.3em] text-muted-foreground/70 mb-4">Git Contributions</p>
+            <h2 className="text-4xl md:text-5xl font-display font-bold mb-6">
+              Consistent contributions, clean commits, and open-source momentum.
+            </h2>
+            <p className="text-lg text-muted-foreground leading-relaxed mb-6">
+              In this section, my GitHub contributions will set here from my GitHub profile.
+            </p>
+            <div className="mb-8">
+              <a
+                href="https://github.com/mkError420"
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center rounded-full bg-white px-5 py-3 text-sm font-semibold text-slate-950 transition hover:bg-slate-100"
+              >
+                View my GitHub profile
+                <ArrowRight className="ml-2 h-4 w-4" />
+              </a>
+            </div>
+            <div className="grid gap-4 sm:grid-cols-3">
+              <div className="rounded-3xl border border-border bg-muted p-6 text-center">
+                <p className="text-3xl font-bold mb-2">{githubStats.public_repos}</p>
+                <p className="text-sm uppercase tracking-[0.24em] text-muted-foreground/70">Repositories</p>
+              </div>
+              <div className="rounded-3xl border border-border bg-muted p-6 text-center">
+                <p className="text-3xl font-bold mb-2">{githubStats.followers}</p>
+                <p className="text-sm uppercase tracking-[0.24em] text-muted-foreground/70">Followers</p>
+              </div>
+              <div className="rounded-3xl border border-border bg-muted p-6 text-center">
+                <p className="text-3xl font-bold mb-2">{githubStats.public_gists}</p>
+                <p className="text-sm uppercase tracking-[0.24em] text-muted-foreground/70">Public Gists</p>
+              </div>
+            </div>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, x: 40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="rounded-[2rem] border border-border bg-muted p-6 shadow-xl"
+          >
+            <div className="block h-full rounded-[1.5rem] bg-slate-950/90 p-8">
+              <div className="flex items-center justify-between mb-8">
+                <div>
+                  <p className="text-sm uppercase tracking-[0.24em] text-white/70">Github activity</p>
+                  <h3 className="text-2xl font-display font-bold text-white">Contribution heatmap</h3>
+                  <p className="mt-2 text-sm text-white/60">Live activity for @{githubDisplayName}</p>
+                </div>
+                <div className="rounded-full bg-white/10 px-3 py-1 text-xs uppercase text-white/80">Live</div>
+              </div>
+              <div className="overflow-hidden rounded-3xl border border-white/10 bg-white/5 p-4">
+                <img
+                  src={contributionsUrl}
+                  alt={`GitHub contributions heatmap for @${githubDisplayName}`}
+                  className="w-full h-auto min-h-[220px] max-h-[320px] object-contain"
+                />
+              </div>
+              <div className="mt-8 rounded-3xl border border-white/10 bg-white/5 p-6 text-white/80">
+                <p className="text-sm uppercase tracking-[0.24em] text-white/50 mb-3">Recent highlight</p>
+                <p className="text-sm leading-relaxed">
+                  @{githubDisplayName} currently has {githubStats.public_repos} public repositories, {githubStats.followers} followers, and {githubStats.public_gists} public gists on GitHub.
+                </p>
+              </div>
+            </div>
+          </motion.div>
         </div>
       </section>
 
