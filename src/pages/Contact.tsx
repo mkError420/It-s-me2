@@ -10,14 +10,38 @@ export default function Contact() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsSubmitting(true);
-    // Simulate API call
-    setTimeout(() => {
+
+    const form = e.currentTarget;
+    const formData = new FormData(form);
+    formData.append("_captcha", "false");
+    formData.append("_subject", "Portfolio Contact Form Message");
+
+    try {
+      const response = await fetch(
+        "https://formsubmit.co/ajax/el/ruloki",
+        {
+          method: "POST",
+          body: formData,
+          headers: {
+            Accept: "application/json",
+          },
+        }
+      );
+
+      if (response.ok) {
+        setSubmitted(true);
+        form.reset();
+      } else {
+        console.error("Form submission error", response.statusText);
+      }
+    } catch (error) {
+      console.error("Form submission failed", error);
+    } finally {
       setIsSubmitting(false);
-      setSubmitted(true);
-    }, 1500);
+    }
   };
 
   return (
@@ -65,7 +89,8 @@ export default function Contact() {
                   <div className="space-y-2">
                     <label className="text-sm font-medium ml-1">Full Name</label>
                     <Input 
-                      placeholder="JEnter your nickname" 
+                      name="name"
+                      placeholder="Enter your nickname" 
                       required 
                       className="rounded-2xl h-14 bg-muted/30 border-border focus:bg-background transition-colors"
                     />
@@ -73,6 +98,7 @@ export default function Contact() {
                   <div className="space-y-2">
                     <label className="text-sm font-medium ml-1">Email Address</label>
                     <Input 
+                      name="email"
                       type="email" 
                       placeholder="Enter your email address" 
                       required 
@@ -83,6 +109,7 @@ export default function Contact() {
                 <div className="space-y-2">
                   <label className="text-sm font-medium ml-1">Subject</label>
                   <Input 
+                    name="subject"
                     placeholder="Project Inquiry" 
                     required 
                     className="rounded-2xl h-14 bg-muted/30 border-border focus:bg-background transition-colors"
@@ -91,6 +118,7 @@ export default function Contact() {
                 <div className="space-y-2">
                   <label className="text-sm font-medium ml-1">Message</label>
                   <Textarea 
+                    name="message"
                     placeholder="Tell me about your project..." 
                     required 
                     className="rounded-2xl min-h-[200px] bg-muted/30 border-border focus:bg-background transition-colors p-6"
