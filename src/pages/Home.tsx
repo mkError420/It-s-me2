@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 import { cn } from "@/lib/utils";
 import { projects } from "../data/projects";
 
-const heroImage = new URL("../assects/image.2.png", import.meta.url).href;
+const heroImage = new URL("../assects/image.4.png", import.meta.url).href;
 const featuredProjects = projects.slice(0, 2).map((project) => ({
   title: project.title,
   category: project.tags[0] ?? "Featured",
@@ -53,11 +53,14 @@ export default function Home() {
                 <Sparkles className="w-4 h-4 mr-2 text-yellow-500" />
                 Available for new opportunities
               </Badge>
-              <h1 className="text-6xl md:text-8xl font-display font-bold tracking-tight leading-[0.9] mb-8">
-                Building <span className="text-muted-foreground">Digital</span> Experiences That <span className="text-primary italic">Matter</span>.
+              <h1 className="text-5xl md:text-7xl font-display font-bold tracking-tight leading-[0.95] mb-6">
+                Hi there! <span className="text-primary italic">I'm M.K Rabbani</span>
               </h1>
+              <p className="text-2xl md:text-3xl font-semibold text-muted-foreground max-w-3xl mb-8">
+                I build modern web experiences with a sharp focus on design, performance, and real product results.
+              </p>
               <p className="text-xl text-muted-foreground max-w-2xl mb-10 leading-relaxed">
-                I’m a passionate web developer focused on building responsive, user-friendly, and scalable web applications. I enjoy turning ideas into real-world digital products using modern technologies.
+                Also a passionate web developer focused on building responsive, user-friendly, and scalable web applications. I enjoy turning ideas into real-world digital products using modern technologies.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Button

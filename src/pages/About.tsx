@@ -3,32 +3,40 @@ import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
 import { Briefcase, GraduationCap, Heart, User } from "lucide-react";
 import React from "react";
+import img from "../assects/banner.png";
 
 const experience = [
+   {
+    company: "Rangpur Group",
+    role: "Website Manager",
+    period: "7-january 2026-present",
+    description: "A responsive website manager developed to simplify website administration, content management, and performance monitoring for developers and businesses.",
+  },
   {
-    company: "Tech Innovators",
-    role: "Senior Full Stack Developer",
-    period: "2022 - Present",
+    company: "Softwire-24.com",
+    role: "React Developer",
+    period: "2024 - 2025",
     description: "Leading the development of core product features, mentoring junior developers, and optimizing application performance.",
   },
   {
-    company: "Creative Digital Agency",
-    role: "Frontend Developer",
-    period: "2020 - 2022",
-    description: "Developed responsive and interactive user interfaces for a diverse range of clients using React and modern CSS frameworks.",
+    company: "Quantatroops",
+    role: "WordPress Developer",
+    period: "2023 - 2024",
+    description: "Specializes in designing, developing, and maintaining WordPress websites with custom themes, plugins, and optimized performance.",
   },
   {
-    company: "StartUp Hub",
-    role: "Junior Web Developer",
-    period: "2018 - 2020",
-    description: "Assisted in the development of web applications, bug fixing, and implementing UI designs.",
+    company: "e-shikhon.com",
+    role: "Technical Support Engineer",
+    period: "2018 - 2023",
+    description: "Experienced Technical Support Engineer skilled in troubleshooting hardware and software issues, optimizing systems, and providing timely solutions for businesses and clients.",
   },
 ];
 
 const skills = [
-  { category: "Frontend", items: ["React", "Next.js", "TypeScript", "Tailwind CSS", "Framer Motion"] },
-  { category: "Backend", items: ["Node.js", "Express", "PostgreSQL", "MongoDB", "GraphQL"] },
-  { category: "Tools", items: ["Git", "Docker", "AWS", "Figma", "Vercel"] },
+  { category: "Frontend", items: ["React", "Next.js", "TypeScript", "Tailwind CSS", "ShadeCN UI"] },
+  { category: "Backend", items: ["Node.js", "Express","MongoDB",] },
+  { category: "Tools", items: ["Git", "VS Code", "Vercel", "Netlify","Figma", "Firebase"] },
+  {category: "CMS", items: ["WordPress", "Elementor", "WooCommerce", "Contact Form 7"] },
 ];
 
 export default function About() {
@@ -66,7 +74,7 @@ export default function About() {
             className="relative aspect-square rounded-[3rem] overflow-hidden border border-border shadow-2xl"
           >
             <img
-              src="https://picsum.photos/seed/person/800/800"
+              src={img}
               alt="Profile"
               className="object-cover w-full h-full"
               referrerPolicy="no-referrer"
@@ -78,7 +86,7 @@ export default function About() {
                 </div>
                 <div>
                   <p className="font-bold">Based in</p>
-                  <p className="text-muted-foreground">San Francisco, CA</p>
+                  <p className="text-muted-foreground">Palashbari, Gaibandha</p>
                 </div>
               </div>
             </div>
@@ -123,14 +131,21 @@ export default function About() {
             </div>
             <div className="space-y-8">
               <div className="p-6 rounded-2xl border border-border bg-muted/30">
-                <p className="text-sm text-muted-foreground mb-2">2014 - 2018</p>
+                <p className="text-sm text-muted-foreground mb-2">2017 - 2020</p>
                 <h3 className="font-display font-bold text-xl mb-1">B.S. Computer Science</h3>
-                <p className="text-muted-foreground">Stanford University</p>
+                <p className="text-muted-foreground">Dhaka City College (NU Professional)</p>
               </div>
               <div className="p-6 rounded-2xl border border-border bg-muted/30">
-                <p className="text-sm text-muted-foreground mb-2">2018</p>
-                <h3 className="font-display font-bold text-xl mb-1">UI/UX Design Certificate</h3>
-                <p className="text-muted-foreground">Design Academy</p>
+                <p className="text-sm text-muted-foreground mb-2">2016</p>
+                <h3 className="font-display font-bold text-xl mb-1">HSC (Higher Secondary Certificate)</h3>
+                <p className="text-muted-foreground">Science</p>
+                <p className="text-muted-foreground">Palashbari Govt. College</p>
+              </div>
+              <div className="p-6 rounded-2xl border border-border bg-muted/30">
+                <p className="text-sm text-muted-foreground mb-2">2013</p>
+                <h3 className="font-display font-bold text-xl mb-1">SSC (Secondary School Certificate)</h3>
+                <p className="text-muted-foreground">Science(Dakhil)</p>
+                <p className="text-muted-foreground">Palashbari Senior Fazil Madrasha</p>
               </div>
             </div>
           </div>

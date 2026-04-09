@@ -65,7 +65,7 @@ export default function Contact() {
                   <div className="space-y-2">
                     <label className="text-sm font-medium ml-1">Full Name</label>
                     <Input 
-                      placeholder="John Doe" 
+                      placeholder="JEnter your nickname" 
                       required 
                       className="rounded-2xl h-14 bg-muted/30 border-border focus:bg-background transition-colors"
                     />
@@ -74,7 +74,7 @@ export default function Contact() {
                     <label className="text-sm font-medium ml-1">Email Address</label>
                     <Input 
                       type="email" 
-                      placeholder="john@example.com" 
+                      placeholder="Enter your email address" 
                       required 
                       className="rounded-2xl h-14 bg-muted/30 border-border focus:bg-background transition-colors"
                     />
@@ -118,8 +118,8 @@ export default function Contact() {
                   </div>
                   <div>
                     <h3 className="font-display font-bold text-xl mb-2">Email</h3>
-                    <p className="text-muted-foreground">hello@mk.com</p>
-                    <p className="text-muted-foreground">support@mk.com</p>
+                    <p className="text-muted-foreground">mk.rabbani.cse@gmail.com</p>
+                    <p className="text-muted-foreground">nobinislam420@gmail.com</p>
                   </div>
                 </div>
 
@@ -129,8 +129,8 @@ export default function Contact() {
                   </div>
                   <div>
                     <h3 className="font-display font-bold text-xl mb-2">Phone</h3>
-                    <p className="text-muted-foreground">+1 (555) 000-0000</p>
-                    <p className="text-muted-foreground">Mon - Fri, 9am - 5pm PST</p>
+                    <p className="text-muted-foreground">+880 1854-718767</p>
+                    <p className="text-muted-foreground">24/7 Available</p>
                   </div>
                 </div>
 
@@ -140,8 +140,8 @@ export default function Contact() {
                   </div>
                   <div>
                     <h3 className="font-display font-bold text-xl mb-2">Location</h3>
-                    <p className="text-muted-foreground">San Francisco, CA</p>
-                    <p className="text-muted-foreground">United States</p>
+                    <p className="text-muted-foreground">Spalashbari, Gaibandha</p>
+                    <p className="text-muted-foreground">Bangladesh</p>
                   </div>
                 </div>
               </CardContent>
