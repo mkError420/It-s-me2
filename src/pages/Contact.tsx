@@ -153,9 +153,36 @@ export default function Contact() {
                 Follow me on social media for more updates and insights.
               </p>
               <div className="flex flex-wrap gap-4">
-                <Button variant="secondary" size="sm" className="rounded-full">LinkedIn</Button>
-                <Button variant="secondary" size="sm" className="rounded-full">GitHub</Button>
-                <Button variant="secondary" size="sm" className="rounded-full">Twitter</Button>
+                <Button
+                  variant="secondary"
+                  size="sm"
+                  className="rounded-full"
+                  render={
+                    <a href="https://www.linkedin.com/in/mk-rabbani-81343024b/" target="_blank" rel="noreferrer">
+                      LinkedIn
+                    </a>
+                  }
+                />
+                <Button
+                  variant="secondary"
+                  size="sm"
+                  className="rounded-full"
+                  render={
+                    <a href="https://github.com/mkError420" target="_blank" rel="noreferrer">
+                      GitHub
+                    </a>
+                  }
+                />
+                <Button
+                  variant="secondary"
+                  size="sm"
+                  className="rounded-full"
+                  render={
+                    <a href="https://www.facebook.com/share/18FjXeSp8u/" target="_blank" rel="noreferrer">
+                      facebook
+                    </a>
+                  }
+                />
               </div>
             </div>
           </div>

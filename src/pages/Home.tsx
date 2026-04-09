@@ -402,7 +402,7 @@ export default function Home() {
                 <img
                   src={contributionsUrl}
                   alt={`GitHub contributions heatmap for @${githubDisplayName}`}
-                  className="w-full h-auto min-h-[220px] max-h-[320px] object-contain"
+                  className="w-full h-auto min-h-[340px] max-h-[520px] object-contain"
                 />
               </div>
               <div className="mt-8 rounded-3xl border border-white/10 bg-white/5 p-6 text-white/80">
