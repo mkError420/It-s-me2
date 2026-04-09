@@ -3,14 +3,16 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { ExternalLink, Github } from "lucide-react";
 
+const ecommerceImage = new URL("../assects/e-commerce.png", import.meta.url).href;
+
 const projects = [
   {
     title: "E-Commerce Platform",
     description: "A full-featured e-commerce solution with real-time inventory, secure payments, and an intuitive admin dashboard.",
-    image: "https://picsum.photos/seed/shop/800/600",
-    tags: ["React", "Node.js", "MongoDB", "Stripe"],
-    github: "#",
-    demo: "#",
+    image: ecommerceImage,
+    tags: ["Next.js","Tailwind CSS", "Node.js", "MongoDB", "Stripe"],
+    github: "https://github.com/mkError420/e-commerce-full-function",
+    demo: "https://e-commerce-full-function-red.vercel.app/",
   },
   {
     title: "AI Analytics Dashboard",

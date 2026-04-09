@@ -11,6 +11,8 @@ import Home from "./pages/Home";
 import Projects from "./pages/Projects";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
+import TermsOfService from "./pages/TermsOfService";
 import { AnimatePresence, motion } from "motion/react";
 
 // Scroll to top on route change
@@ -61,6 +63,22 @@ function AnimatedRoutes() {
               <Contact />
             </PageWrapper>
           } 
+        />
+        <Route
+          path="/privacy-policy"
+          element={
+            <PageWrapper>
+              <PrivacyPolicy />
+            </PageWrapper>
+          }
+        />
+        <Route
+          path="/terms-of-service"
+          element={
+            <PageWrapper>
+              <TermsOfService />
+            </PageWrapper>
+          }
         />
       </Routes>
     </AnimatePresence>

@@ -5,7 +5,9 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Link } from "react-router-dom";
 import { cn } from "@/lib/utils";
-import heroImage from "../assect/image.2.png";
+
+const heroImage = new URL("../assects/image.2.png", import.meta.url).href;
+const ecommerceImage = new URL("../assects/e-commerce.png", import.meta.url).href;
 
 const services = [
   {
@@ -32,7 +34,7 @@ const featuredProjects = [
   {
     title: "E-Commerce Platform",
     category: "Web Development",
-    image: "https://picsum.photos/seed/shop/800/600",
+    image: ecommerceImage,
     link: "/projects",
   },
   {
@@ -151,8 +153,18 @@ export default function Home() {
       {/* Featured Projects */}
       <section className="bg-primary text-primary-foreground py-24">
         <div className="container mx-auto px-4">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-8 mb-16">
-            <h2 className="text-4xl md:text-5xl font-display font-bold">Featured Projects</h2>
+          <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between mb-16">
+            <div className="max-w-2xl">
+              <p className="text-sm uppercase tracking-[0.32em] text-primary-foreground/60 mb-4">
+                Featured Projects
+              </p>
+              <h2 className="text-4xl md:text-5xl font-display font-bold">
+                Recent work designed to drive impact.
+              </h2>
+              <p className="mt-6 text-lg text-primary-foreground/80 max-w-2xl">
+                Explore two standout projects that showcase modern interfaces, performance-first engineering, and polished user experiences.
+              </p>
+            </div>
             <Button
               variant="secondary"
               className="rounded-full"
@@ -160,40 +172,93 @@ export default function Home() {
             />
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-            {featuredProjects.map((project, index) => (
+          <div className="grid gap-8 lg:grid-cols-[1.4fr_0.95fr]">
+            <motion.div
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="group overflow-hidden rounded-[2rem] border border-primary/20 bg-slate-950/10 shadow-[0_30px_80px_-40px_rgba(15,23,42,0.9)]"
+            >
+              <div className="relative aspect-[16/10] overflow-hidden">
+                <img
+                  src={featuredProjects[0].image}
+                  alt={featuredProjects[0].title}
+                  className="object-cover w-full h-full transition-transform duration-700 group-hover:scale-110"
+                  referrerPolicy="no-referrer"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+                <div className="absolute inset-x-0 bottom-0 p-8">
+                  <Badge variant="outline" className="mb-4 text-white border-white/20">
+                    {featuredProjects[0].category}
+                  </Badge>
+                  <h3 className="text-4xl font-display font-bold text-white mb-4">
+                    {featuredProjects[0].title}
+                  </h3>
+                  <p className="max-w-xl text-sm text-white/80 mb-6">
+                    A complete, scalable e-commerce experience with a polished storefront and streamlined checkout flow.
+                  </p>
+                  <Button variant="secondary" className="rounded-full">
+                    <Link to={featuredProjects[0].link}>View Project</Link>
+                  </Button>
+                </div>
+              </div>
+            </motion.div>
+
+            <div className="grid gap-8">
               <motion.div
-                key={project.title}
-                initial={{ opacity: 0, scale: 0.95 }}
-                whileInView={{ opacity: 1, scale: 1 }}
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                className="group cursor-pointer"
+                transition={{ duration: 0.6, delay: 0.1 }}
+                className="group overflow-hidden rounded-[2rem] border border-primary/20 bg-slate-950/10 shadow-[0_20px_60px_-35px_rgba(15,23,42,0.85)]"
               >
-                <div className="relative aspect-[4/3] overflow-hidden rounded-3xl mb-6">
+                <div className="relative aspect-[16/10] overflow-hidden">
                   <img
-                    src={project.image}
-                    alt={project.title}
+                    src={featuredProjects[1].image}
+                    alt={featuredProjects[1].title}
                     className="object-cover w-full h-full transition-transform duration-700 group-hover:scale-110"
                     referrerPolicy="no-referrer"
                   />
-                  <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                    <Button variant="secondary" className="rounded-full">View Details</Button>
-                  </div>
-                </div>
-                <div className="flex justify-between items-start">
-                  <div>
-                    <Badge variant="outline" className="text-primary-foreground border-primary-foreground/30 mb-2">
-                      {project.category}
+                  <div className="absolute inset-0 bg-black/50" />
+                  <div className="absolute inset-x-0 bottom-0 p-6">
+                    <Badge variant="outline" className="mb-3 text-white border-white/20">
+                      {featuredProjects[1].category}
                     </Badge>
-                    <h3 className="text-2xl font-display font-bold">{project.title}</h3>
-                  </div>
-                  <div className="w-12 h-12 rounded-full border border-primary-foreground/30 flex items-center justify-center group-hover:bg-primary-foreground group-hover:text-primary transition-all">
-                    <ArrowRight className="w-6 h-6" />
+                    <h3 className="text-3xl font-display font-bold text-white mb-3">
+                      {featuredProjects[1].title}
+                    </h3>
+                    <p className="text-sm text-white/75">
+                      A data-driven dashboard built to help teams quickly discover insights and act with confidence.
+                    </p>
                   </div>
                 </div>
               </motion.div>
-            ))}
+
+              <motion.div
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+                className="rounded-[2rem] border border-border bg-muted p-8"
+              >
+                <p className="text-sm uppercase tracking-[0.24em] text-muted-foreground/70 mb-4">Project highlights</p>
+                <div className="space-y-4">
+                  <div>
+                    <h4 className="text-xl font-semibold mb-2">Design systems</h4>
+                    <p className="text-muted-foreground">Reusable UI, consistent branding, and accessible visual patterns across product experiences.</p>
+                  </div>
+                  <div>
+                    <h4 className="text-xl font-semibold mb-2">Performance goals</h4>
+                    <p className="text-muted-foreground">Fast-loading pages and intuitive interactions for every screen size.</p>
+                  </div>
+                  <div>
+                    <h4 className="text-xl font-semibold mb-2">User-centered tools</h4>
+                    <p className="text-muted-foreground">Projects built with user adoption, clarity, and conversion in mind.</p>
+                  </div>
+                </div>
+              </motion.div>
+            </div>
           </div>
         </div>
       </section>
